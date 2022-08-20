@@ -1,15 +1,25 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { __postMemberlogin } from "../redux/modules/member";
+
 import styled from "styled-components";
 
 
-export function Home() {
-    const [memberId, setMemberId] = useState("");
-    const [memberPassword, setMemberPassword] = useState("");
+export  function Login() {
+  const [memberId, setMemberId] = useState("");
+  const [memberPassword, setMemberPassword] = useState("");
 
-    // const onsubmitHandler = (event) => {
-    //     event.preventDefault();
-    //     dispatch(__postMemberlogin({ newMemberlogin }));
-    // }
+  const dispatch = useDispatch();
+
+  const newMemberlogin = {
+    memberId,
+    memberPassword,
+  };
+
+  const onsubmitHandler = (event) => {
+    event.preventDefault();
+    dispatch(__postMemberlogin({ newMemberlogin }));
+  };
 
 
     return (
@@ -20,28 +30,28 @@ export function Home() {
           <SignUpCardh2>
             <SinupStorong>Welcome!</SinupStorong>
           </SignUpCardh2>
-          <form >
+          <form onSubmit={(e) => onsubmitHandler(e)}>
             <SignUpInputDiv>
               <SignUpCardinput
-                // type="text"
-                // placeholder="아이디를 입력하세요."
-                // value={memberId}
-                // onChange={(event) => {
-                //   setMemberId(event.target.value);
-                // }}
-                // required
+                type="text"
+                placeholder="이메일을 입력하세요"
+                value={memberId}
+                onChange={(event) => {
+                  setMemberId(event.target.value);
+                }}
+                required
               />
             </SignUpInputDiv>
             <SignUpRefDiv></SignUpRefDiv>
             <SignUpInputDiv>
               <SignUpCardinput
-                // type="password"
-                // placeholder="비밀번호를 입력하세요."
-                // value={memberPassword}
-                // onChange={(event) => {
-                //   setMemberPassword(event.target.value);
-                // }}
-                // required
+                type="password"
+                placeholder="비밀번호를 입력하세요."
+                value={memberPassword}
+                onChange={(event) => {
+                  setMemberPassword(event.target.value);
+                }}
+                required
               />
             </SignUpInputDiv>
             <SignUpRefDiv></SignUpRefDiv>
@@ -232,4 +242,4 @@ export const SignUpInputDiv = styled.div`
 
 
 
-export default Home;
+export default Login;

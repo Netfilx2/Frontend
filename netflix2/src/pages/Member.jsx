@@ -1,74 +1,171 @@
+import React, { useCallback, useEffect, useRef } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { debounce } from "lodash";
+
+import {  __postMember } from "../redux/modules/member";
 import styled from "styled-components";
 
 
+
 export function Member() {
-    return ( 
-        <div>
-        <SinupBody>
+
+  const [memberId, setMemberId] = useState("");
+  const [memberPassword, setMemberPassword] = useState("");
+  const [memberPasswordCheck, setMemberPasswordCheck] = useState("");
+  const [memberCheck, setMemberCheck] = useState(false);
+  const [memberEmail, setMemberEmail] = useState("");
+
+  //소문자/숫자 포함 8글자 이상
+  const memberExp = /^(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
+
+
+  const dispatch = useDispatch();
+
+  const memberIdRef = useRef();
+  const memberIconRef = useRef();
+  const memberPW = useRef();
+  const memberEmailRef = useRef();
+
+  const newMember = {
+    memberId,
+    memberPassword,
+    memberPasswordCheck,
+    memberCheck,
+    memberEmail,
+  };
+  
+
+  const checkmemberId = useCallback(
+    debounce((memberId) => {
+      if (memberExp.test(memberId) === false) {
+        memberIdRef.current.innerText = "아이디 형식에 맞지 않습니다";
+        setMemberCheck(false);
+      } else {
+          memberIdRef.current.innerText = "사용가능한 아이디입니다";
+            setMemberCheck(true);}
+        },500),
+    []
+  );
+
+  useEffect(() => {
+    if (memberId !== "") memberIconRef.current.style.display = "block";
+    else memberIconRef.current.style.display = "none";
+    if (memberPasswordCheck !== "") memberPW.current.style.display = "block";
+    else memberPW.current.style.display = "none";
+  }, [memberId, memberPasswordCheck]);
+
+  useEffect(() => {
+    if (memberPassword === "" && memberPasswordCheck === "") {
+    } else if (memberPassword === "") {
+      memberPW.current.style.color = "";
+      memberPW.current.innerText = "";
+    } else if (memberPasswordCheck === "") {
+      memberPW.current.style.color = "";
+    } else {
+      if (memberPassword !== memberPasswordCheck) {
+        memberPW.current.innerText = "입력한 비밀번호와 다릅니다";
+      } else {
+        memberPW.current.innerText = "비밀번호가 일치합니다";
+      }
+    }
+  }, [memberPassword, memberPasswordCheck]);
+
+  useEffect(() => {
+    if (memberId !== "") {
+      checkmemberId(memberId);
+    } else {
+      memberIdRef.current.innerText = "";
+    }
+  }, [checkmemberId, memberId]);
+
+  const onsubmitHandler = (event) => {
+    event.preventDefault();
+    if (memberPassword !== memberPasswordCheck) {
+      memberPW.current.innerText = "입력한 비밀번호와 다릅니다";
+    } else {
+      dispatch(__postMember({ newMember }));
+    }
+  };
+
+  return (
+    <div>
+      <SinupBody>
         <SinupH1>회원가입</SinupH1>
         <SignUpCardDiv>
-            <SignUpCardh2>
+          <SignUpCardh2>
             <SinupStorong>PineApple</SinupStorong>
-            </SignUpCardh2>
-            <form >
-            <SignUpInputDiv>
+          </SignUpCardh2>
+          <form onSubmit={(e) => onsubmitHandler(e)}>
+          <SignUpInputDiv>
             <SignUpCardinput
-                // type="text"
-                // placeholder="아이디를 입력하세요."
-                // value={memberId}
-                // onChange={(event) => {
-                // setMemberId(event.target.value);
-                // }}
-                required
+              type="text"
+              placeholder="닉네임을 입력하세요."
+              value={memberId}
+              onChange={(event) => {
+                setMemberId(event.target.value);
+              }}
+              required
             />
             </SignUpInputDiv>
             <SignUpRefDiv>
-            <SignUpBoxInputIcon >
-                아이디를 확인해주세요
+            <SignUpBoxInputIcon ref={memberIdRef}>
+              아이디를 확인해주세요
             </SignUpBoxInputIcon>
             </SignUpRefDiv>
             <SignUpCardP>영어랑 숫자 포함 8글자로 작성해주세요</SignUpCardP>
-            <SignUpBoxInputIcon ></SignUpBoxInputIcon>
-                <SignUpInputDiv>
+            <SignUpBoxInputIcon ref={memberIconRef}></SignUpBoxInputIcon>
+              <SignUpInputDiv>
             <SignUpCardinput
-                // type="password"
-                // placeholder="비밀번호를 입력하세요."
-                // value={memberPassword}
-                // onChange={(event) => {
-                // setMemberPassword(event.target.value);
-                // }}
-                // required
+              type="password"
+              placeholder="비밀번호를 입력하세요."
+              value={memberPassword}
+              onChange={(event) => {
+                setMemberPassword(event.target.value);
+              }}
+              required
             />
             </SignUpInputDiv>
+         
             <SignUpInputDiv>
             <SignUpCardinput
-                // type="password"
-                // placeholder="비밀번호를 다시 입력해주세요."
-                // value={memberPasswordCheck}
-                // onChange={(event) => {
-                // setMemberPasswordCheck(event.target.value);
-                // }}
-                // required
+              type="password"
+              placeholder="비밀번호를 다시 입력해주세요."
+              value={memberPasswordCheck}
+              onChange={(event) => {
+                setMemberPasswordCheck(event.target.value);
+              }}
+              required
             />
+           
             </SignUpInputDiv>
             <SignUpRefDiv>
-            <SignUpBoxInputIcon></SignUpBoxInputIcon>
+            <SignUpBoxInputIcon ref={memberPW}></SignUpBoxInputIcon>
             </SignUpRefDiv>
+            <input 
+             type="text"
+             placeholder="비밀번호를 다시 입력해주세요."
+             value={memberEmail}
+             onChange={(event) => {
+               setMemberEmail(event.target.value);
+             }}
+             required
+            ref={memberEmailRef} />
             <SignUpCardP>...포함해주세요</SignUpCardP>
             <SignUpDiv>
             <SignUpformBTM
-                text={"submit"}
-                type={"submit"}
+              text={"submit"}
+              type={"submit"}
             >
-                회원가입
+              회원가입
             </SignUpformBTM>
             </SignUpDiv>
-            </form>
+          </form>
         </SignUpCardDiv>
-        </SinupBody>
+      </SinupBody>
     </div>
-    );
-}
+  );
+};
 
 
 
