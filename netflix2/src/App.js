@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Header from "./shared/Header";
-// import Footer from "./shared/Footer";
+import Footer from "./shared/Footer";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Member from "./pages/Member";
@@ -20,6 +20,7 @@ function App() {
           <Route path="/movies" exact="true" element={<Movies />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );

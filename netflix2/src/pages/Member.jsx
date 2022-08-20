@@ -95,7 +95,7 @@ export const SinupBody = styled.section`
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
-  background: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FB0fQw%2FbtreY2KWYuJ%2Fs6x4cBnAlXCHUGKPvdpNb0%2Fimg.jpg') no-repeat center center/cover, rgba(0, 0, 0, 0.5);
+  background: url('https://assets.nflxext.com/ffe/siteui/vlv3/0f07b807-7be1-457d-be88-eb9153d5d4e9/358a7f7a-b41d-4b75-b654-a3783749e0ef/KR-ko-20220815-popsignuptwoweeks-perspective_alpha_website_medium.jpg') no-repeat center center/cover, rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
   background-attachment: fixed;
   `
@@ -110,7 +110,7 @@ export const SinupH1 = styled.h1`
 
 export const SinupStorong = styled.strong`
  font-weight: 700;
-  color: rgb(26, 37, 112);
+  color: #fff;
 `
 
 export const SignUpCardDiv = styled.div`
@@ -120,7 +120,7 @@ export const SignUpCardDiv = styled.div`
   margin: 0 auto;
   border-radius: 6px;
   background-color: #9699a2;
-  background-color:rgba(172, 176, 190, 0.3);
+  background-color:rgba(0,0,0,.75);
   box-shadow: 2px 2px 20px rgba(0,0,2,.3);
   color:rgb(219, 223, 253);
 `
