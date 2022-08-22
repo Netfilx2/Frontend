@@ -142,9 +142,9 @@ export function Member() {
             <SignUpRefDiv>
             <SignUpBoxInputIcon ref={memberPW}></SignUpBoxInputIcon>
             </SignUpRefDiv>
-            <input 
-             type="text"
-             placeholder="비밀번호를 다시 입력해주세요."
+            <SignUpCardinput
+             type="email"
+             placeholder="이메일을 입력하세요."
              value={memberEmail}
              onChange={(event) => {
                setMemberEmail(event.target.value);
@@ -170,7 +170,7 @@ export function Member() {
 
 
 
-export const SignUpBoxInputIcon = styled.div`
+const SignUpBoxInputIcon = styled.div`
 
     right: 10px;
     top: 50%;
@@ -183,7 +183,7 @@ export const SignUpBoxInputIcon = styled.div`
     }
   `;
 
-export const SinupBody = styled.section`
+const SinupBody = styled.section`
   height: 100vh;
   overflow-x: auto;
   width: 100%;
@@ -197,7 +197,7 @@ export const SinupBody = styled.section`
   background-attachment: fixed;
   `
 
-export const SinupH1 = styled.h1`
+const SinupH1 = styled.h1`
   color: rgb(219, 223, 253);
   font-size: 30px;
   font-weight: 700;
@@ -205,12 +205,12 @@ export const SinupH1 = styled.h1`
   margin-bottom: 24px;
   `
 
-export const SinupStorong = styled.strong`
+const SinupStorong = styled.strong`
  font-weight: 700;
   color: #fff;
 `
 
-export const SignUpCardDiv = styled.div`
+const SignUpCardDiv = styled.div`
   max-width: 500px;
   width: 30%;
   height: auto;
@@ -222,7 +222,7 @@ export const SignUpCardDiv = styled.div`
   color:rgb(219, 223, 253);
 `
 
-export const SignUpCardh2 = styled.h2`
+const SignUpCardh2 = styled.h2`
   padding: 20px;
   font-size: 25px;
   text-align: center;
@@ -238,7 +238,7 @@ export const SignUpCardform = styled.form`
   padding: 20px 22px;
 `
 
-export const SignUpCardinput = styled.input`
+const SignUpCardinput = styled.input`
   width: 90%;
   margin-top: 7px;
   margin-bottom: 15px;
@@ -265,7 +265,7 @@ export const SignUpLogin = styled.div`
   text-decoration: none;
 `
 
-export const SignUpformBTM = styled.button`
+const SignUpformBTM = styled.button`
   padding: 0;
   border: none;
   background: none;
@@ -275,7 +275,7 @@ export const SignUpformBTM = styled.button`
   color: #B1BCE6;
   font-size: 18px;
 `
-export const SignUpCardP = styled.p`
+const SignUpCardP = styled.p`
   font-size: 12px;
   color:rgb(26, 37, 112);
   text-align: center;
@@ -284,15 +284,14 @@ export const SignUpCardP = styled.p`
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
 `
-export const SignUpDiv = styled.div`
+const SignUpDiv = styled.div`
   width: 100%;
   height: 30px;
   display: flex; 
   justify-content: center;
 
 `
-
-export const SignUpRefDiv = styled.div`
+const SignUpRefDiv = styled.div`
   width: 100%;
   height: 10px;
   display: flex; 
@@ -300,7 +299,7 @@ export const SignUpRefDiv = styled.div`
 
 `
 
-export const SignUpInputDiv = styled.div`
+const SignUpInputDiv = styled.div`
   width: 100%;
   height: 60px;
   display: flex; 

@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import instance from "./instance";
 
+// 로그인
 export const __postMemberlogin = createAsyncThunk(
   "member/__postMemberlogin",
   async (payload, thunkAPI) => {
@@ -15,12 +16,13 @@ export const __postMemberlogin = createAsyncThunk(
         const memberCheck = res.data;
         const ReToken = res.headers["refresh-token"];
         const Token = res.headers["authorization"];
+        console.log(res);
         if (memberCheck.success === false) {
           alert(memberCheck.error.message);
         } else {
           localStorage.setItem("Token", Token);
           localStorage.setItem("Retoken", ReToken);
-          return alert("환영합니다"), console.log(res);
+          return alert("환영합니다"), window.location.replace("/");
         }
       })
       .catch((error) => error);
@@ -29,6 +31,7 @@ export const __postMemberlogin = createAsyncThunk(
   }
 );
 
+//회원가입
 export const __postMember = createAsyncThunk(
   "member/__postMember",
   async (payload, thunkAPI) => {
@@ -51,6 +54,7 @@ export const __postMember = createAsyncThunk(
   }
 );
 
+//로그아웃
 export const __PostLogout = createAsyncThunk(
   "basket/__PostLogout",
   async (payload, thunkAPI) => {

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import back from "../image/back.png";
+;
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ const StContainer = styled.div`
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0)
     ),
-    url(${back});
+    url('');
   background-repeat: no-repeat;
   background-size: cover;
 
