@@ -6,15 +6,18 @@ import "../pages/Row.css";
 
 //React Alice Carousel
 import "react-alice-carousel/lib/alice-carousel.css";
+import AliceCarousel from "react-alice-carousel";
 
 export function Row({ dataList, category }) {
   const { movie } = useSelector((state) => state.movie);
-
   const dispatch = useDispatch();
   const dataMovie = movie.datainfo;
 
+  //React Alice Carousel
+  const handleDragStart = (e) => e.preventDefault();
+
   return (
-    <Fragment>
+    <AliceCarousel>
       {dataList.map((x) => {
         return (
           <Fragment key={x.id}>
@@ -22,7 +25,7 @@ export function Row({ dataList, category }) {
           </Fragment>
         );
       })}
-    </Fragment>
+    </AliceCarousel>
   );
 }
 
