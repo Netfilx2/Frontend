@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-;
+import errorBack from "../shared/image/errorBack.png";
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -39,7 +39,6 @@ const StContainer = styled.div`
 
   color: white;
 
-  width: 100vw;
   height: 100vh;
 
   background-image: radial-gradient(
@@ -47,7 +46,7 @@ const StContainer = styled.div`
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0)
     ),
-    url('');
+    url(${errorBack});
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -106,10 +105,10 @@ const StFootText = styled.div`
   font-weight: 100;
   position: absolute;
   right: 80px;
-  bottom: 30px;
+  bottom: 40px;
 
   font-size: 1.1em;
   opacity: 0.7;
 
-  text-shadow: 0px 2px 2px #666;
+  text-shadow: 0px 2px 0px gray;
 `;
