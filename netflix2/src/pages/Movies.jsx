@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import img from "../shared/img/지옥.png";
 import img2 from "../shared/img/지옥2.png";
-import img3 from "../shared/img/우영우.png";
-import img4 from "../shared/img/모범가족.png";
-import img5 from "../shared/img/우리들의 블루스.png";
 import "../pages/Movies.css";
 import { BsFillPlayFill } from "react-icons/bs";
 import { RiInformationLine } from "react-icons/ri";
@@ -63,19 +60,21 @@ export function Movies() {
         <div className="banner_contents">
           <img src={img2} className="titlelogo" alt="React" />
           <div className="banner_description">
-            <p>
+            <p className="banner_p">
               어느 날 기이한 존재로부터 지옥행을 선고받은 사람들. 충격과
               두려움에 휩싸인 도시에 대혼란의 시대가 도래한다. 신의 심판을
               외치며 세를 확장하려는 종교단체와 진실을 파헤치는 자들의 이야기.
             </p>
           </div>
-          <div className="bannerbuttonmain">
-            <button className="bannerbutton1">재생</button>
-            <BsFillPlayFill color="black" className="bannericon" />
-          </div>
-          <div className="bannerbuttonmain2">
-            <button className="bannerbutton2">상세정보</button>
-            <RiInformationLine color="white" className="bannericon2" />
+          <div className="button12">
+            <div className="bannerbuttonmain">
+              <button className="bannerbutton1">재생</button>
+              <BsFillPlayFill color="black" className="bannericon" />
+            </div>
+            <div className="bannerbuttonmain2">
+              <button className="bannerbutton2">상세정보</button>
+              <RiInformationLine color="white" className="bannericon2" />
+            </div>
           </div>
         </div>
         <div className="banner-fadeBottom"></div>
@@ -90,12 +89,14 @@ export function Movies() {
                   <h2 className="movietitle"> {movie.smallCategory}</h2>
                   {movie.dataList.map((movieiinfo) => {
                     return (
-                      <img
-                        className="row_poster"
-                        src={movieiinfo.backdrop_path}
-                        alt={movieiinfo.title}
-                        key={movieiinfo.id}
-                      ></img>
+                      <>
+                        <img
+                          className="row_poster"
+                          src={movieiinfo.backdrop_path}
+                          alt={movieiinfo.title}
+                          key={movieiinfo.id}
+                        />
+                      </>
                     );
                   })}
                 </div>
@@ -113,42 +114,15 @@ export function Movies() {
     </>
   );
 }
-const Title1 = styled.div`
-  color: #fff;
-  font-size: 1.4vw;
-  font-weight: 700;
-`;
-
-const Title = styled.div`
-  color: #fff;
-  font-size: 1.4vw;
-  font-weight: 700;
-  margin-top: 70px;
-`;
 
 const HeaderWrap = styled.div`
   /* position: absolute; */
   background-size: cover;
   background-position: 50%;
   background-image: url(${img});
-  height: 1100px;
+  height: 1300px;
   width: 100%;
   transition: opacity 0.4s cubic-bezier(0.665, 0.235, 0.265, 0.8) 0s;
-  /*  */
-  bottom: 0;
-  left: 0;
-  /* position: absolute; */
-  right: 0;
-  top: 0;
 `;
-
-const Img = styled.div`
-  width: 100%;
-  margin-bottom: 1.2vw;
-  min-height: 13.2vw;
-  position: relative;
-`;
-
-const Wrap = styled.div``;
 
 export default Movies;
