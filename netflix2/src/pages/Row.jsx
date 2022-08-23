@@ -3,10 +3,13 @@ import { useSelector } from "react-redux";
 import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import "../pages/Row.css";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
 
-//React Alice Carousel
-import "react-alice-carousel/lib/alice-carousel.css";
-import AliceCarousel from "react-alice-carousel";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
 
 export function Row({ dataList, category }) {
   const { movie } = useSelector((state) => state.movie);
@@ -17,15 +20,23 @@ export function Row({ dataList, category }) {
   const handleDragStart = (e) => e.preventDefault();
 
   return (
-    <AliceCarousel>
+    <Swiper
+      navigation={true}
+      modules={[Navigation]}
+      className="mySwiper"
+      slidesPerView={6}
+    >
       {dataList.map((x) => {
         return (
-          <Fragment key={x.id}>
-            <img className="row_poster" src={x.backdrop_path} />
-          </Fragment>
+          <>
+            <SwiperSlide key={x.id}>
+              <img className="row_poster" src={x.backdrop_path} />
+              {/* <MdOutlineArrowForwardIos className="icon" /> */}
+            </SwiperSlide>
+          </>
         );
       })}
-    </AliceCarousel>
+    </Swiper>
   );
 }
 
