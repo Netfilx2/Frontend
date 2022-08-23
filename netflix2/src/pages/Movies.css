@@ -1,7 +1,17 @@
+.banner-fadeBottom{
+    height: 21rem;
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgba(20, 20, 20, 0.9),
+        rgb(20, 20, 20)
+    );
+}
+
+/* 포스터 */
 .row_posters {
-    display: flex;
-    object-fit: contain;
-    background-color: rebeccapurple;
+    white-space: nowrap;
+    /* object-fit: contain; */
     transition: transform 450ms;
     overflow-y: hidden;
     overflow-x: scroll;
@@ -12,11 +22,15 @@
     /* margin-right: 10px; */
     padding: 10px;
     transition:transform 450ms;
-    width: 100%;
-    height: 100%;
-    background-color: aqua;
+    object-fit: contain;
+    max-height: 250px;
+    
 }
 
+.movietitle {
+    display: flex; 
+    color: #FFF;
+}
 /* 일단 임시 모달창 만들어야함 */
 .row_poster:hover {
     transform: scale(1.08);
@@ -52,7 +66,7 @@
     /* position: relative; */
 }
 
-/* button */
+
 .banner_contents {
     width: 100%;
     height: auto;
@@ -134,4 +148,5 @@
     color: #fff;
     font-weight: 400;
     line-height: normal;
+
 }
