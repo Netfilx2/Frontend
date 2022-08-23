@@ -14,14 +14,14 @@ export const __postMemberlogin = createAsyncThunk(
       })
       .then((res) => {
         const memberCheck = res.data;
-        const ReToken = res.headers["refresh-token"];
+        // const ReToken = res.headers["refresh-token"];
         const Token = res.headers["authorization"];
         console.log(res);
         if (memberCheck.success === false) {
           alert(memberCheck.error.message);
         } else {
           localStorage.setItem("Token", Token);
-          localStorage.setItem("Retoken", ReToken);
+          // localStorage.setItem("Retoken", ReToken);
           return alert("환영합니다"), window.location.replace("/");
         }
       })

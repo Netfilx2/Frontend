@@ -11,12 +11,14 @@ import { useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
+import { Row } from "./Row";
+
 export function Movies() {
   const { movie, loaded } = useSelector((state) => state.movie);
 
   const dispatch = useDispatch();
   const dataMovie = movie.datainfo;
-  console.log(dataMovie);
+  console.log(movie);
 
   useEffect(() => {
     dispatch(__Getmovie());
@@ -25,38 +27,6 @@ export function Movies() {
   return (
     <>
       <HeaderWrap>
-        <div className="row">
-          <div className="row_posters">
-            {loaded ? (
-              dataMovie.map((movie) => {
-                return (
-                  <div key={movie.smallCategory}>
-                    {movie.dataList.map((movieiinfo) => {
-                      return (
-                        <div
-                          className="banner"
-                          style={{
-                            backgrounSize: "cover",
-                            backgroundImage: `url("https://www.youtube.com/embed/Go8nTmfrQd8?autoplay=1&mute=1")`,
-                          }}
-                        >
-                          {/* <h3>{movieiinfo.overview}</h3> */}
-                          {/* url={movieiinfo.youtubePath} */}
-                        </div>
-                      );
-                    })}
-                  </div>
-                );
-              })
-            ) : (
-              // 스켈레톤
-              <div>Loding…</div>
-
-              //스켈레톤ui을 넣는 곳
-            )}
-          </div>
-        </div>
-
         <div className="banner_contents">
           <img src={img2} className="titlelogo" alt="React" />
           <div className="banner_description">
@@ -87,18 +57,10 @@ export function Movies() {
               return (
                 <div key={movie.smallCategory}>
                   <h2 className="movietitle"> {movie.smallCategory}</h2>
-                  {movie.dataList.map((movieiinfo) => {
-                    return (
-                      <>
-                        <img
-                          className="row_poster"
-                          src={movieiinfo.backdrop_path}
-                          alt={movieiinfo.title}
-                          key={movieiinfo.id}
-                        />
-                      </>
-                    );
-                  })}
+                  <Row
+                    dataList={movie.dataList}
+                    category={movie.smallCategory}
+                  ></Row>
                 </div>
               );
             })

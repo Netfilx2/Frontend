@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Member from "./pages/Member";
 import Movies from "./pages/Movies";
 import NotFound from "./pages/NotFound";
+import Row from "./pages/Row";
 
 function App() {
   return (

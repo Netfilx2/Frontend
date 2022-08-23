@@ -1,0 +1,9 @@
+.row_poster {
+  padding: 5px;
+  transition:transform 450ms;
+  object-fit: contain;
+  max-height: 250px;
+  /* display: inline; */
+  border-radius: 14px;
+  overflow-y: hidden;
+}
