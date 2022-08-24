@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import "../pages/Row.css";
-import { MdOutlineArrowForwardIos } from "react-icons/md";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
