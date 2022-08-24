@@ -228,6 +228,7 @@ export const SignUpInputDiv = styled.div`
 const SignUph3 = styled.div`
   color: #8c8c8c;
   font-size: 13px;
+  margin-top: 60px;
 `;
 const Button = styled.div`
   background-color: transparent;
