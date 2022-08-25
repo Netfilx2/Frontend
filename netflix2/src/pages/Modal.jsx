@@ -38,7 +38,7 @@ function Modal({ closeModal, x }) {
               {x.likeCnt === 1 ? (
                 <BiLike
                   className="bannericon4"
-                  color="red"
+                  color="#f89f9f"
                   onClick={changeLike}
                 ></BiLike>
               ) : (
