@@ -1,160 +1,150 @@
-
-.banner-fadeBottom{
-    height: 23rem;
-    background-image: linear-gradient(
-        180deg,
-        transparent,
-        rgba(20, 20, 20, 0.9),
-        rgb(20, 20, 20)
-    );
+.banner-fadeBottom {
+  height: 60rem;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(20, 20, 20, 0.9),
+    rgb(20, 20, 20)
+  );
 }
 
 /* 포스터 */
 .row_posterline {
-    display: flex;
+  display: flex;
 }
 .row_posters {
-    /* white-space: nowrap; */
-    object-fit: contain;
-    overflow-y: hidden;
-    /* overflow-x: scroll; */
-    padding: 90px;
-    
+  /* white-space: nowrap; */
+  object-fit: contain;
+  overflow-y: hidden;
+  /* overflow-x: scroll; */
+  padding: 90px;
 }
 
-
 .row_poster {
-    padding: 5px;
-    transition:transform 450ms;
-    object-fit: contain;
-    max-height: 250px;
-    /* display: inline; */
-    border-radius: 14px;
-    overflow-y: hidden;
-   
+  padding: 5px;
+  transition: transform 450ms;
+  object-fit: contain;
+  max-height: 250px;
+  /* display: inline; */
+  border-radius: 14px;
+  overflow-y: hidden;
 }
 
 .movietitle {
-    display: flex; 
-    color: #FFF;
-    margin-top: 80px;
-    font-size: 40px;
-    font-weight: 400;
-
+  display: flex;
+  color: #fff;
+  margin-top: 80px;
+  font-size: 40px;
+  font-weight: 400;
 }
 /* 일단 임시 모달창 만들어야함 */
 .row_poster:hover {
-    transform: scale(1.08);
+  transform: scale(1.08);
 }
 
 .row_posterText {
-    vertical-align:middle;
-    margin-bottom: 300px;
+  vertical-align: middle;
+  margin-bottom: 300px;
 }
 
 /* rank */
 .row_postersLankmain {
-    vertical-align:middle;
+  vertical-align: middle;
 }
 .row_postersLank {
-    background-color: chartreuse;
-    height: 300px;
-    
+  background-color: chartreuse;
+  height: 300px;
 }
-
 
 /* HeaderWrap */
 .titlelogo {
-    width: 1200px;
-    height: auto;
-    margin-top: 100px;
-    margin-left: 150px;
+  width: 1200px;
+  height: auto;
+  margin-top: 100px;
+  margin-left: 150px;
 }
 
 .banner_contents {
-    padding-top: 140px;
-    height: auto;
+  padding-top: 140px;
+  height: auto;
 }
 .banner_p {
-    font-weight: 300;
-    margin-left: 150px;
-    padding-bottom: 0.3rem;
-    max-width: 900px;
-    height: 80px;
+  font-weight: 300;
+  margin-left: 150px;
+  padding-bottom: 0.3rem;
+  max-width: 900px;
+  height: 80px;
 }
 
 .button12 {
-    display: flex;
+  display: flex;
 }
 
 /* 재생버튼 */
 .bannerbuttonmain {
-    width: 210px;
-    height: 70px;
-    position: relative;
-    padding: 20px;
-
+  width: 210px;
+  height: 70px;
+  position: relative;
+  padding: 20px;
 }
 
 .bannerbutton1 {
-    width: 100%;
-    height: 100%;
-    font-size: 30px;
-    border: 0;
-    border-radius: 4px;
-    padding: 18px 16px 44px 81px;
-    border: 0;
-    border-radius: 4px;
-    margin-left: 130px;
-    cursor: pointer;
-    margin-top: 20px;
-    width: 209px;
-    height: 70px;
-  
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  border: 0;
+  border-radius: 4px;
+  padding: 18px 16px 44px 81px;
+  border: 0;
+  border-radius: 4px;
+  margin-left: 130px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 209px;
+  height: 70px;
 }
 
 .bannericon {
-    position: absolute;
-    color: black;
-    top: 35px;
-    left: 170px;
-    font-size: 76px;
+  position: absolute;
+  color: black;
+  top: 35px;
+  left: 170px;
+  font-size: 76px;
 }
 
 /* 상세정보 */
 .bannerbuttonmain2 {
-    width: 260px;
-    height: 72px;
-    position: relative;
+  width: 260px;
+  height: 72px;
+  position: relative;
 }
 
 .bannerbutton2 {
-    width: 100%;
-    height: 100%;
-    font-size: 30px;
-    border: 0;
-    border-radius: 4px;
-    margin-left: 140px;
-    margin-top: 38px;
-    cursor: pointer;
-    background-color: rgba(109,109,110,0.7);
-    color: white;
-    padding: 18px 16px 44px 78px;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  border: 0;
+  border-radius: 4px;
+  margin-left: 140px;
+  margin-top: 38px;
+  cursor: pointer;
+  background-color: rgba(109, 109, 110, 0.7);
+  color: white;
+  padding: 18px 16px 44px 78px;
 }
 
 .bannericon2 {
-    position: absolute;
-    top: 47px;
-    left: 170px;
-    font-size: 50px;
+  position: absolute;
+  top: 47px;
+  left: 170px;
+  font-size: 50px;
 }
 
 /* 배너 글 */
 .banner_description {
-    font-size: 1.2vw;
-    text-shadow: 2px 2px 4pxrgba(0,0,0,.45);
-    color: #fff;
-    font-weight: 400;
-    line-height: normal;
-
+  font-size: 1.2vw;
+  text-shadow: 2px 2px 4pxrgba (0, 0, 0, 0.45);
+  color: #fff;
+  font-weight: 400;
+  line-height: normal;
 }
