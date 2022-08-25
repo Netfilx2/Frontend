@@ -28,8 +28,8 @@ export function Footer() {
           <TextBox>
             <p>질문이 있으신가요? 문의 전화: 080-001-9587</p>
             <TextList>
-              {lists.map((list) => (
-                <TextLi>{list}</TextLi>
+              {lists.map((list, idx) => (
+                <TextLi key={idx}>{list}</TextLi>
               ))}
             </TextList>
             <Languege>

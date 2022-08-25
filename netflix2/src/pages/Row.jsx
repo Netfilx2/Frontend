@@ -1,5 +1,5 @@
 // redux
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import "../pages/Row.css";
 
 // Import Swiper React components
@@ -21,7 +21,7 @@ export function Row({ dataList }) {
       >
         {dataList.map((x) => {
           return (
-            <>
+            <Fragment key={x.id}>
               <SwiperSlide
                 key={x.id}
                 id={x.id}
@@ -31,7 +31,7 @@ export function Row({ dataList }) {
               >
                 <Modaldetaile x={x} />
               </SwiperSlide>
-            </>
+            </Fragment>
           );
         })}
       </Swiper>

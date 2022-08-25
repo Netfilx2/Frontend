@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import instance from "./instance";
 
-export const __addLike = createAsyncThunk(
+export const __changeLike = createAsyncThunk(
   "/auth/movie/{movieId}/like/__addLike",
   async (payload, thunkAPI) => {
-    const data = await axios
-      .put(`/auth/movie/{movieId}/like/${payload.id}`)
+    console.log(payload);
+    const data = await instance
+      .post(`/auth/movie/${payload}/like`)
       .then((res) => {
         const check = res.data;
         if (check.success === false) {
@@ -26,17 +27,11 @@ const movieLike = createSlice({
   },
   reducers: {},
   extraReducers: {
-    [__addLike.fulfilled]: (state, action) => {
+    [__changeLike.fulfilled]: (state, action) => {
       state.basket.map((add) => {
         if (add.id === action.payload.id) {
-          //add.id 랑 payload.id가 같으면
-          return (
-            (add.count = action.payload.count), // count에 payload.count를 넣고
-            (add.totalCost = action.payload.totalCost),
-            (add.basketTotalCost = action.payload.basketTotalCost) // totalCost에 payload.totalCost를 넣는다
-          );
+          return;
         }
-        return add; // 마지막에 저거 위에 id가 겹치지 않을 때 보내준다.
       });
     },
   },
