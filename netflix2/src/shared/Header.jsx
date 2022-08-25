@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "../shared/Header.css";
 import imglogo from "../shared/img/파랑아이콘.png";
 
 export function Header() {
   // HEADER
+  const navigate = useNavigate();
   const [loginIcon, setIcon] = useState(false);
   const [show, handleShow] = useState(false);
   useEffect(() => {
@@ -31,7 +33,12 @@ export function Header() {
           alt="Netflix Logo"
           href="/"
         ></img>
-        <img className="nav_avatar" src={imglogo} alt="Netflix Logo"></img>
+        <img
+          className="nav_avatar"
+          src={imglogo}
+          alt="Netflix Logo"
+          onClick={() => navigate("/profile")}
+        ></img>
         <div className="logoall">
           <LogoDIV>
             <Text href="/Movies">홈</Text>

@@ -8,6 +8,7 @@ import Member from "./pages/Member";
 import Movies from "./pages/Movies";
 import NotFound from "./pages/NotFound";
 import Row from "./pages/Row";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login" exact="true" element={<Login />} />
           <Route path="/Member" exact="true" element={<Member />} />
           <Route path="/movies" exact="true" element={<Movies />} />
+          <Route path="/profile" exact="true" element={<Profile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
