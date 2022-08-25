@@ -57,13 +57,13 @@ export function Footer() {
 }
 export default Footer;
 const Wrap = styled.div`
-  background-color: #000;
+  background-color: #141414;
 `;
 const FooterContainer = styled.div`
   margin: 0 auto;
   padding: 70px 45px;
   max-width: 1000px;
-  background-color: #000;
+  background-color: #141414;
 `;
 const FooterBox = styled.div`
   color: #737373;
@@ -96,7 +96,7 @@ const TextLi = styled.li`
 const Languege = styled.select`
   width: 15%;
   margin-top: 20px;
-  background-color: #000;
+  background-color: #141414;
   background-image: none;
   border: 1px solid #333;
   color: #999;

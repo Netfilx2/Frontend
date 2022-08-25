@@ -65,7 +65,7 @@ const AnswerText = styled.div`
 `;
 const DownBtn = styled.div`
   position: absolute;
-  bottom: 7px;
+  bottom: 3px;
 
   font-size: 50px;
   font-weight: 100;
