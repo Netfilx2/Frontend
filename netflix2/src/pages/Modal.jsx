@@ -3,8 +3,16 @@ import styled from "styled-components";
 import "./Modal.css";
 import { BsFillPlayFill } from "react-icons/bs";
 import { BiLike } from "react-icons/bi";
+import { __changeLike } from "../redux/modules/Like";
+import { useDispatch } from "react-redux";
 
 function Modal({ closeModal, x }) {
+  const dispatch = useDispatch();
+  const changeLike = () => {
+    dispatch(__changeLike(x.id));
+  };
+
+  console.log(x);
   return (
     <ModalBox>
       <div className="modalBackground">
@@ -26,15 +34,28 @@ function Modal({ closeModal, x }) {
             <button className="bannerbutton3">
               재생 <BsFillPlayFill color="black" className="bannericon3" />
             </button>
-
-            <BiLike className="bannericon4" color="white"></BiLike>
+            <div className="movieLike">
+              {x.likeCnt === 1 ? (
+                <BiLike
+                  className="bannericon4"
+                  color="red"
+                  onClick={changeLike}
+                ></BiLike>
+              ) : (
+                <BiLike
+                  className="bannericon4"
+                  color="white"
+                  onClick={changeLike}
+                ></BiLike>
+              )}
+            </div>
             <div className="banner-fadeBottom2"></div>
           </div>
           <p className="Modaltitle">{x.title}</p>
           <p className="Modaloverview">{x.overview}</p>
           <p className="Modalgenre">장르:{x.genre}</p>
           <p></p>
-          <div class="modal-backdrop"></div>
+          <div className="modal-backdrop"></div>
         </div>
       </div>
     </ModalBox>

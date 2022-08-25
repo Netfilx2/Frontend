@@ -8,7 +8,7 @@ import { RiInformationLine } from "react-icons/ri";
 //redux
 import { __Getmovie } from "../redux/modules/movie";
 import { useSelector } from "react-redux";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { useDispatch } from "react-redux";
 
 import { Row } from "./Row";
@@ -98,9 +98,9 @@ export function Movies() {
       <div className="row">
         <div className="row_posters">
           {loaded ? (
-            dataMovie.map((movie) => {
+            dataMovie.map((movie, idx) => {
               return (
-                <>
+                <Fragment key={idx}>
                   <div key={movie.smallCategory}>
                     <h2 className="movietitle"> {movie.smallCategory}</h2>
                     <Row
@@ -108,7 +108,7 @@ export function Movies() {
                       category={movie.smallCategory}
                     ></Row>
                   </div>
-                </>
+                </Fragment>
               );
             })
           ) : (

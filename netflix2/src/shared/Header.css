@@ -26,6 +26,7 @@
     width: 50px;
     object-fit: contain;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 /* logo */

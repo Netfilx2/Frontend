@@ -30,6 +30,8 @@ export function Footer() {
             <TextList>
               {lists.map((list, i) => (
                 <TextLi key={i}>{list}</TextLi>
+              {lists.map((list, idx) => (
+                <TextLi key={idx}>{list}</TextLi>
               ))}
             </TextList>
             <Languege>
