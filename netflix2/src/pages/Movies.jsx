@@ -8,14 +8,13 @@ import { RiInformationLine } from "react-icons/ri";
 //redux
 import { __Getmovie } from "../redux/modules/movie";
 import { useSelector } from "react-redux";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { Row } from "./Row";
 
 export function Movies() {
   const { movie, loaded } = useSelector((state) => state.movie);
-
   const dispatch = useDispatch();
   const dataMovie = movie.datainfo;
   console.log(movie);
@@ -55,13 +54,15 @@ export function Movies() {
           {loaded ? (
             dataMovie.map((movie) => {
               return (
-                <div key={movie.smallCategory}>
-                  <h2 className="movietitle"> {movie.smallCategory}</h2>
-                  <Row
-                    dataList={movie.dataList}
-                    category={movie.smallCategory}
-                  ></Row>
-                </div>
+                <>
+                  <div key={movie.smallCategory}>
+                    <h2 className="movietitle"> {movie.smallCategory}</h2>
+                    <Row
+                      dataList={movie.dataList}
+                      category={movie.smallCategory}
+                    ></Row>
+                  </div>
+                </>
               );
             })
           ) : (
@@ -72,7 +73,6 @@ export function Movies() {
           )}
         </div>
       </div>
-      {/* 링크 숫자 표현  */}
     </>
   );
 }

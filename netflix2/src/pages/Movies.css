@@ -14,7 +14,7 @@
     display: flex;
 }
 .row_posters {
-    white-space: nowrap;
+    /* white-space: nowrap; */
     object-fit: contain;
     overflow-y: hidden;
     /* overflow-x: scroll; */
