@@ -6,7 +6,6 @@ import styled from "styled-components";
 const Profile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const namee = useSelector((state) => state.profile.profile);
 
   const [nickname, setNickname] = useState();
 
