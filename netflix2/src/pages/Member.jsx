@@ -197,10 +197,10 @@ export const SignInDiv = styled.div`
 `;
 export const SignUpBoxInputIcon = styled.div`
   right: 10px;
-  top: 50%;
+  top: 50px;
   transform: translateY(-15px);
   font-size: 18px;
-  margin-top: 1.5%;
+  margin-top: 8%;
   color: rgb(219, 223, 253);
   &:hover {
     cursor: pointer;
@@ -234,7 +234,7 @@ export const SignUpCardDiv = styled.div`
   /* max-width: 500px; */
 
   width: 350px;
-  height: 550px;
+  height: 600px;
   margin: 0 auto;
   padding: 60px;
   border-radius: 6px;

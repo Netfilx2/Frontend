@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" exact="true" element={<Home />} />
           <Route path="/login" exact="true" element={<Login />} />
-          <Route path="/Member" exact="true" element={<Member />} />
+          <Route path="/member" exact="true" element={<Member />} />
           <Route path="/movies" exact="true" element={<Movies />} />
           {/* <Modal />
           <Modal2 /> */}

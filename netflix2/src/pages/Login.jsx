@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { __postMemberlogin } from "../redux/modules/member";
+import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
 export function Login() {
+  const navigate = useNavigate();
   const [memberId, setMemberId] = useState("");
   const [memberPassword, setMemberPassword] = useState("");
 
@@ -55,7 +57,7 @@ export function Login() {
               <SignInformBTM>로그인</SignInformBTM>
             </SignInDiv>
             <SignInDiv>
-              <SignInformBTM href="/Member">회원 가입</SignInformBTM>
+              <SignInA onClick={() => navigate("/member")}>회원 가입</SignInA>
             </SignInDiv>
           </form>
           <SignUph3>
@@ -92,6 +94,20 @@ export const SignInformBTM = styled.button`
   padding: 14px;
 `;
 
+export const SignInA = styled.button`
+  border: none;
+  background: #e50914;
+  cursor: pointer;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column; /*수직 정렬*/
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+`;
 export const SignInDiv = styled.div`
   width: 100%;
   height: 30px;

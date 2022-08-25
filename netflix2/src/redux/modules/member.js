@@ -22,7 +22,7 @@ export const __postMemberlogin = createAsyncThunk(
         } else {
           localStorage.setItem("Token", Token);
           // localStorage.setItem("Retoken", ReToken);
-          return alert("환영합니다"), window.location.replace("/");
+          return alert("환영합니다"), window.location.replace("/Movies");
         }
       })
       .catch((error) => error);

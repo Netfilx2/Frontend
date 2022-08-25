@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import "./Modal.css";
 import { BsFillPlayFill } from "react-icons/bs";
-import { GrLike } from "react-icons/gr";
+import { BiLike } from "react-icons/bi";
 
 function Modal({ closeModal, x }) {
   console.log(x);
@@ -11,7 +11,7 @@ function Modal({ closeModal, x }) {
       <div className="modalBackground">
         <div className="modalContainer">
           <div className="imgbox">
-            <div>
+            <div className="button-wrap">
               <button
                 onClick={() => closeModal(false)}
                 className="titleCloseBtn"
@@ -24,10 +24,11 @@ function Modal({ closeModal, x }) {
               src={x.backdrop_path}
               style={{ width: "100%", height: "100%" }}
             ></img>
-            <button className="bannerbutton3">재생</button>
-            <BsFillPlayFill color="black" className="bannericon3" />
-            <button className="bannerbutton4">좋아요</button>
-            <GrLike className="bannericon4" color="white"></GrLike>
+            <button className="bannerbutton3">
+              재생 <BsFillPlayFill color="black" className="bannericon3" />
+            </button>
+
+            <BiLike className="bannericon4" color="white"></BiLike>
             <div className="banner-fadeBottom2"></div>
           </div>
           <p className="Modaltitle">{x.title}</p>
