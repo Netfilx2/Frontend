@@ -280,6 +280,7 @@ const StContentH2 = styled.h2`
 const StContent = styled.div`
   display: flex;
   flex-direction: column;
+  text-align: center;
   width: 50vw;
   font-size: 1.25em;
   font-weight: 400;

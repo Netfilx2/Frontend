@@ -23,8 +23,6 @@ const NetflixMovie = createSlice({
       state.loaded = true;
       state.movie = action.payload;
       state.dataList = action.payload;
-      // state.movieList =
-      console.log(state.dataList);
     },
   },
 });

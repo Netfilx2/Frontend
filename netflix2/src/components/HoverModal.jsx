@@ -3,7 +3,6 @@ import styled from "styled-components";
 import video from "../shared/video/지옥.mp4";
 
 const HoverModal = ({ hover }) => {
-  console.log(hover);
   let hover2 = hover;
   return (
     <ModalBox opacity={hover}>
