@@ -1,16 +1,17 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const MainForm = () => {
   const [check, setCheck] = useState(0);
-
+  const navigate = useNavigate();
   return (
     <StForm>
       <InputBox>
         <StInput placeholder="이메일 주소"></StInput>
         <ChcekEmail opacity={check}>{"이메일을 입력해주세요."}</ChcekEmail>
       </InputBox>
-      <StBtn onClick={() => setCheck(1)}>시작하기 &gt;</StBtn>
+      <StBtn onClick={() => navigate("/login")}>시작하기 &gt;</StBtn>
     </StForm>
   );
 };
