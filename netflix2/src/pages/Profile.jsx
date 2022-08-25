@@ -1,6 +1,15 @@
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const namee = useSelector((state) => state.profile.profile);
+
+  const [nickname, setNickname] = useState();
+
   return (
     <ProfileWrap>
       <ProfileContainer>
@@ -13,7 +22,11 @@ const Profile = () => {
             />
           </ImgBox>
           <ProfileFrom>
-            <ProfileName placeholder="이름"></ProfileName>
+            <ProfileName
+              placeholder="이름"
+              onChange={(e) => setNickname(e.target.value)}
+              // value={namee}
+            ></ProfileName>
             <LanguegeBox>
               <ProfileH2>언어</ProfileH2>
             </LanguegeBox>
@@ -32,12 +45,12 @@ const Profile = () => {
               <PlayDiv>
                 <CheckDiv>
                   <TypeCheck type="checkbox" id="check" />
-                  <CheckLabel for="check"></CheckLabel>
+                  <CheckLabel htmlFor="check"></CheckLabel>
                   <span>모든 디바이스에서 시리즈의 다음 화 자동재생</span>
                 </CheckDiv>
                 <CheckDiv>
                   <TypeCheck type="checkbox" id="check" />
-                  <CheckLabel for="check"></CheckLabel>
+                  <CheckLabel htmlFor="check"></CheckLabel>
                   <span>모든 디바이스에서 탐색 중 미리보기 자동재생</span>
                 </CheckDiv>
               </PlayDiv>
@@ -45,8 +58,12 @@ const Profile = () => {
           </ProfileFrom>
         </ProfileBox>
         <ButtonBox>
-          <SubmitBtn fontSize="1.2vw">저장</SubmitBtn>
-          <UpdateBtn fontSize="1.2vw">취소</UpdateBtn>
+          <SubmitBtn onClick={() => navigate("/movies")} fontSize="1.2vw">
+            저장
+          </SubmitBtn>
+          <UpdateBtn onClick={() => navigate("/movies")} fontSize="1.2vw">
+            취소
+          </UpdateBtn>
           <UpdateBtn fontSize="1.2vw">프로필 삭제</UpdateBtn>
         </ButtonBox>
       </ProfileContainer>

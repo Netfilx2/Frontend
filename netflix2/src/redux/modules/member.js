@@ -6,7 +6,6 @@ import instance from "./instance";
 export const __postMemberlogin = createAsyncThunk(
   "member/__postMemberlogin",
   async (payload, thunkAPI) => {
-    console.log(payload);
     const resData = await instance
       .post("/member/login", {
         email: payload.newMemberlogin.memberId,
@@ -16,7 +15,6 @@ export const __postMemberlogin = createAsyncThunk(
         const memberCheck = res.data;
         // const ReToken = res.headers["refresh-token"];
         const Token = res.headers["authorization"];
-        console.log(res);
         if (memberCheck.success === false) {
           alert(memberCheck.error.message);
         } else {
@@ -48,8 +46,7 @@ export const __postMember = createAsyncThunk(
           alert(check.error.message);
         } else return alert("환영합니다"), window.location.replace("/login");
       })
-      .catch((error) => console.log(error));
-    console.log(resData);
+      .catch();
     return thunkAPI.fulfillWithValue(resData);
   }
 );

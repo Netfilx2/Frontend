@@ -5,7 +5,6 @@ import { BsFillPlayFill } from "react-icons/bs";
 import { BiLike } from "react-icons/bi";
 
 function Modal({ closeModal, x }) {
-  console.log(x);
   return (
     <ModalBox>
       <div className="modalBackground">

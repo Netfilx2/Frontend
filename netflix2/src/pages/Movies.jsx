@@ -12,12 +12,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { Row } from "./Row";
+import useWindowSize from "../shared/WindowSize";
 
 export function Movies() {
   const { movie, loaded } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
   const dataMovie = movie.datainfo;
-  console.log(movie);
+  const namee = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(__Getmovie());
@@ -29,6 +30,51 @@ export function Movies() {
         <div className="banner_contents">
           <img src={img2} className="titlelogo" alt="React" />
           <div className="banner_description">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "flex-start",
+                position: "absolute",
+                left: "-15px",
+                top: "-70px",
+                zIndex: "-1",
+                // border: "10px red solid",
+                margin: "0",
+                textAlign: "center",
+                transform: "scale(1.1)",
+              }}
+            >
+              {/* <video
+              src={video}
+              autoPlay
+              muted
+              loop
+              style={{ width: "100vw", height: "100wh" }}
+            /> */}
+              {/* <div>
+                <object
+                  type="text/html"
+                  width={useWindowSize().width - 50}
+                  height={useWindowSize().height}
+                  data="https://www.youtube.com/embed/WXkN6awcSG0?autoplay=1&mute=1&controls=0&end=110"
+                  allowFullScreen
+                ></object>
+              </div> */}
+              {/* <video autoPlay>
+              <source src="https://www.youtube.com/embed/WXkN6awcSG0" />
+            </video> */}
+              <iframe
+                width={useWindowSize().width}
+                height={useWindowSize().height}
+                src="https://www.youtube.com/embed/WXkN6awcSG0?autoplay=1&mute=1&controls=0&end=110"
+                // &loop=1&playlist=WXkN6awcSG0&modestbranding=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
             <p className="banner_p">
               어느 날 기이한 존재로부터 지옥행을 선고받은 사람들. 충격과
               두려움에 휩싸인 도시에 대혼란의 시대가 도래한다. 신의 심판을
@@ -81,7 +127,7 @@ const HeaderWrap = styled.div`
   /* position: absolute; */
   background-size: cover;
   background-position: 50%;
-  background-image: url(${img});
+  /* background-image: url(${img}); */
   height: 1300px;
   width: 100%;
   transition: opacity 0.4s cubic-bezier(0.665, 0.235, 0.265, 0.8) 0s;
